@@ -9,16 +9,32 @@ namespace CUI
         static void Main(string[] args)
         {
             //CarDetail();
+            //GetAll();
+            CarManager carMAnager = new CarManager(new EfCarDal());
+            var result = carMAnager.GetCarDetailsBrand();
+            if (result.Success == true)
+            {
+                foreach (var item in result.Data)
+                {
+                    Console.WriteLine(item.BrandName);
+                }
+            }
+
+
+            Console.ReadLine();
+        }
+
+        private static void GetAll()
+        {
             CarManager carManager = new CarManager(new EfCarDal());
             var result = carManager.GetAll();
-            if(result.Success == true)
+            if (result.Success == true)
             {
                 foreach (var item in result.Data)
                 {
                     Console.WriteLine(item.Description);
                 }
             }
-            Console.ReadLine();
         }
 
         private static void CarDetail()

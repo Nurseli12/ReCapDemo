@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using Core;
+using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities.DTOs
 {
-   public  class RentalDetailsCustomerDto :IEntity
+   public  class RentalDetailsCustomerDto :IDtos
     {
         public int RentalId { get; set; }
         public string CustomerName { get; set; }
