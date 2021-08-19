@@ -10,6 +10,22 @@ namespace CUI
         {
             //CarDetail();
             //GetAll();
+            //GetDetailsBrand();
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            var result = rentalManager.GetAll();
+            if (result.Success == true)
+            {
+                foreach (var item in result.Data)
+                {
+                    Console.WriteLine(item.CustomerId);
+                }
+            }
+
+            Console.ReadLine();
+        }
+
+        private static void GetDetailsBrand()
+        {
             CarManager carMAnager = new CarManager(new EfCarDal());
             var result = carMAnager.GetCarDetailsBrand();
             if (result.Success == true)
@@ -19,9 +35,6 @@ namespace CUI
                     Console.WriteLine(item.BrandName);
                 }
             }
-
-
-            Console.ReadLine();
         }
 
         private static void GetAll()

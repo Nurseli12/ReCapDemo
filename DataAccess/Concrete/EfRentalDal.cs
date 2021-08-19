@@ -12,7 +12,7 @@ namespace DataAccess.Concrete
 {
     public class EfRentalDal : EfEntityRepositoryBase<Rental, DataContext>, IRentalDal
     {
-        public List<RentalDetailsCarDto> GetRentalDetailsCar()
+       public List<RentalDetailsCarDto> GetRentalDetailsCar()
         {
             using (DataContext conn = new DataContext())
             {
@@ -25,6 +25,7 @@ namespace DataAccess.Concrete
                                      CarDescription = c.Description,
                                      RentDate = r.RentDate,
                                      ReturnDate = r.ReturnDate
+
                                  };
                 return detailsCar.ToList();
 
